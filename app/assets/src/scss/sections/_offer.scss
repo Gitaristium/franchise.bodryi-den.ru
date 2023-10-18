@@ -1,0 +1,77 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.offer {
+    height: 100%;
+    padding: vw(195px) 0;
+    background: $main-color;
+    z-index: 0;
+
+    @include flex(row, center, flex-start);
+
+    @include devices(mobile) {
+        padding: vwm(7px) 0 vwm(51px);
+
+        .container {
+            @include flex(column-reverse, center, flex-start);
+        }
+    }
+
+    // .offer__desc
+    &__desc {
+        width: fit-content;
+    }
+
+    // .offer__title
+    &__title {
+        font-size: vw(64px);
+        font-weight: 500;
+
+        @include devices(mobile) {
+            font-size: vwm(30px);
+            margin-bottom: vwm(7px);
+        }
+    }
+
+    // .offer__subtitle
+    &__subtitle {
+        font-size: vw(40px);
+        font-weight: 500;
+
+        @include devices(mobile) {
+            font-size: vwm(17px);
+            margin-bottom: vwm(39px);
+        }
+    }
+
+    // .offer__button
+    &__button {
+        margin-left: auto;
+
+        @include hover {
+            &:not(:disabled) {
+                box-shadow:
+                    inset 0 0 0 $borderPx $text-color,
+                    0px 0px vw(20px) 0px $acent-color;
+            }
+        }
+    }
+
+    // .offer__img
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 52.7%;
+        width: vw(933px);
+        height: auto;
+        opacity: 0;
+
+        @include devices(mobile) {
+            position: relative;
+            width: vwm(312px);
+            left: 22.7%;
+            margin-bottom: vwm(7px);
+        }
+    }
+}

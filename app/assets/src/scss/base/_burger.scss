@@ -1,0 +1,151 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.modal {
+    // .modal .nav-list
+    .nav-list {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: vw(400px);
+        max-width: 100%;
+        background: $acent-color;
+        z-index: 1;
+        transform: translateX(100%);
+        padding: $headerPx vw(50px);
+        box-shadow: 0px vw(4px) vw(9px) 0px rgba($text-color, 0.25);
+        margin: 0 auto;
+        overflow-y: auto;
+
+        @include flex(column, center, flex-start, vw(40px));
+
+        @include devices(mobile) {
+            width: vwm(280px);
+            padding: $headerPx-m vwm(30px);
+            gap: vwm(20px);
+        }
+    }
+
+    // .modal .nav-tel
+    .nav-tel {
+        width: vw(220px);
+        height: vw(50px);
+        border: vw(3px) dashed $main-color;
+        font-size: vw(18px);
+        font-weight: 500;
+        border-radius: vw(3px);
+        margin: 0 auto;
+        transition: $transition;
+
+        @include flex(row, center, center);
+
+        @include hover {
+            background: $acent-color;
+            border: $borderSolid $text-color;
+            border-radius: $borderRadiusButton;
+            box-shadow: 0px 0px vw(20px) 0px $main-color;
+        }
+
+        @include active;
+
+        @include devices(mobile) {
+            width: vwm(200px);
+            height: vwm(50px);
+            border: vwm(3px) dashed $main-color;
+            border-radius: vwm(3px);
+            font-size: vwm(16px);
+        }
+    }
+
+    // .modal .nav-call
+    .nav-call {
+        margin-bottom: vw(50px);
+        font-size: vw(18px);
+
+        @include devices(mobile) {
+            margin-bottom: vwm(50px);
+            font-size: vwm(16px);
+        }
+    }
+
+    // .modal .nav-link
+    .nav-link {
+        position: relative;
+        font-size: vw(18px);
+        font-weight: 500;
+        white-space: nowrap;
+
+        @include devices(mobile) {
+            font-size: vwm(16px);
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: calc(50% - vw(13px));
+            left: vw(-6px);
+            width: vw(26px);
+            height: vw(26px);
+            background: $main-color;
+            border-radius: 50%;
+            filter: blur(vw(6.5px));
+            z-index: -1;
+            transform: scale(0);
+            transition: $transition;
+
+            @include devices(mobile) {
+                top: calc(50% - vwm(13px));
+                left: vwm(-6px);
+                width: vwm(26px);
+                height: vwm(26px);
+                filter: blur(vwm(6.5px));
+            }
+        }
+
+        @include hover {
+            &::before {
+                transform: scale(1);
+            }
+        }
+    }
+
+    @include devices(tablet) {
+        @include flex(column, flex-start, center);
+    }
+
+    // .modal.active
+    &.active {
+        @include flex(row, center, flex-end);
+
+        .nav-list {
+            animation: menu-show 0.3s 0.2s forwards;
+        }
+    }
+
+    // .modal.inactive
+    &.inactive {
+        .nav-list {
+            animation: menu-hide 0.3s forwards;
+        }
+    }
+}
+
+@keyframes menu-show {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes menu-hide {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}

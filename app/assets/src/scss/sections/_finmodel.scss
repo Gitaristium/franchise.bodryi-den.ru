@@ -1,0 +1,185 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.finmodel {
+    background: $white-color url(../../theme/img/finmodel/bg.svg) center $headerPx;
+
+    @include devices(mobile) {
+        background-size: vwm(28px);
+    }
+
+    // .finmodel__title
+    &__title {
+        background: $acent-color;
+
+        // .finmodel__title span
+        span {
+            animation: running-line 24s linear infinite;
+        }
+
+        @for $i from 1 to 8 {
+            span:nth-child(#{$i}) {
+                animation-delay: -#{$i * 3.45}s;
+            }
+        }
+
+        @include devices(mobile) {
+            @for $i from 1 to 4 {
+                span:nth-child(#{$i}) {
+                    animation-delay: -#{$i * 8}s;
+                }
+            }
+            @for $i from 4 to 8 {
+                span:nth-child(#{$i}) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // .finmodel__content
+    &__content {
+        padding-top: vw(183px);
+        padding-bottom: vw(243px);
+        position: relative;
+
+        @include flex;
+
+        @include devices(mobile) {
+            padding-top: vwm(79px);
+            padding-bottom: vwm(82px);
+        }
+    }
+
+    // .finmodel__cup
+    &__cup {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: vw(519px);
+        height: auto;
+        transform: translateX(-110%);
+
+        @include devices(mobile) {
+            width: vwm(208px);
+        }
+
+        // .finmodel__cup.one
+        &.one {
+            transform: translate(vw(-726px), vw(-121px));
+
+            @include devices(mobile) {
+                transform: translate(vwm(-163px), vwm(-117px));
+            }
+        }
+
+        // .finmodel__cup.two
+        &.two {
+            transform: translate(vw(-544px), vw(68px));
+
+            @include devices(mobile) {
+                transform: translate(vwm(-91px), vwm(-42px));
+            }
+        }
+    }
+
+    // .finmodel__desc
+    &__desc {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: fit-content;
+        height: fit-content;
+        row-gap: vw(180px);
+        column-gap: vw(80px);
+        margin: auto 0 auto auto;
+
+        @include devices(mobile) {
+            grid-template-columns: 1fr;
+            row-gap: vwm(71px);
+        }
+    }
+
+    // .finmodel .fin-item
+    .fin-item {
+        position: relative;
+        color: $text-color;
+        font-weight: 500;
+        align-self: center;
+        justify-self: center;
+        white-space: nowrap;
+        text-align: center;
+        width: fit-content;
+
+        &:nth-child(3n + 2) {
+            animation-delay: 0.2s;
+        }
+        &:nth-child(3n + 3) {
+            animation-delay: 0.4s;
+        }
+
+        @include devices(mobile) {
+            justify-self: flex-end;
+
+            &:nth-child(3n + 2) {
+                animation-delay: 0s;
+            }
+            &:nth-child(3n + 3) {
+                animation-delay: 0s;
+            }
+        }
+
+        // .finmodel .fin-item__pre
+        &__pre {
+            font-size: vw(24px);
+            margin-right: vw(5px);
+
+            @include devices(mobile) {
+                font-size: vwm(16px);
+                margin-right: vwm(5px);
+            }
+        }
+
+        // .finmodel .fin-item__sum
+        &__sum {
+            font-size: vw(50px);
+
+            @include devices(mobile) {
+                font-size: vwm(34px);
+            }
+        }
+
+        // .finmodel .fin-item__title
+        &__title {
+            padding: vw(6px) vw(10px);
+            border-radius: vw(28px);
+            background: $acent-color;
+            font-size: vw(15px);
+            position: absolute;
+            top: vw(-30px);
+            right: 0;
+            opacity: 0;
+            // transform: translateY(-100%);
+
+            @include flex(row, center, center);
+
+            @include devices(mobile) {
+                padding: vwm(4px) vwm(7px);
+                border-radius: vwm(20px);
+                font-size: vwm(10px);
+                top: vwm(-19px);
+            }
+        }
+
+        // .finmodel__smile.show--play
+        &.show--play {
+            // .finmodel__smile.show--play .fin-item__title
+            .fin-item__title {
+                animation: jack-in-the-box 1s 0.3s forwards;
+            }
+        }
+    }
+}

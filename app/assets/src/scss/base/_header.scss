@@ -1,0 +1,299 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.header {
+    border-bottom: $borderSolid $text-color;
+    position: sticky;
+    background: $main-color;
+    top: 0;
+    z-index: 1;
+
+    @include devices(mobile) {
+        border-bottom: $borderSolid-m $text-color;
+    }
+
+    // .header .nav
+    .nav {
+        height: $headerPx - vw(12px);
+        @include flex(row, center, space-between, vw(33px));
+
+        @include devices(mobile) {
+            height: $headerPx-m;
+        }
+
+        * {
+            line-height: 100%;
+        }
+
+        // .header .nav__logo
+        &__logo {
+            width: vw(219px);
+
+            @include devices(mobile) {
+                width: vwm(133px);
+            }
+        }
+    }
+
+    // .header .nav-list
+    .nav-list {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        column-gap: vw(40px);
+        row-gap: vw(4px);
+
+        @include devices(tablet) {
+            display: none;
+        }
+    }
+
+    // .header .nav-link
+    .nav-link {
+        position: relative;
+        font-size: vw(16px);
+        font-weight: 500;
+        white-space: nowrap;
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: calc(50% - vw(13px));
+            left: vw(-6px);
+            width: vw(26px);
+            height: vw(26px);
+            background: $acent-color;
+            border-radius: 50%;
+            filter: blur(vw(6.5px));
+            z-index: -1;
+            transform: scale(0);
+            transition: $transition;
+        }
+
+        @include hover {
+            &::before {
+                transform: scale(1);
+            }
+        }
+    }
+    // .header .social-buttons
+    .social-buttons {
+        @include flex(row, center, center, vw(24px));
+
+        @include devices(tablet) {
+            margin-left: auto;
+        }
+        @include devices(mobile) {
+            gap: vwm(10px);
+        }
+
+        // .header .social-buttons .social-button
+        .social-button {
+            width: vw(40px);
+            height: vw(40px);
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+            @include devices(mobile) {
+                width: vwm(25px);
+                height: vwm(25px);
+            }
+
+            // .header .social-buttons .social-button svg
+            svg {
+                width: vw(40px);
+                height: vw(40px);
+
+                @include devices(mobile) {
+                    width: vwm(25px);
+                    height: vwm(25px);
+                }
+
+                // .header .social-buttons .social-button svg path
+                path {
+                    transition: $transition;
+                }
+            }
+
+            // .header .social-buttons .social-button:hover
+            @include hover {
+                // .header .social-buttons .social-button:hover svg
+                svg {
+                    -webkit-filter: drop-shadow(0px 0px vw(20px) $acent-color);
+                    filter: drop-shadow(0px 0px vw(20px) $acent-color);
+
+                    @include devices(mobile) {
+                        -webkit-filter: drop-shadow(0px 0px vwm(20px) $acent-color);
+                        filter: drop-shadow(0px 0px vwm(20px) $acent-color);
+                    }
+
+                    // .header .social-buttons .social-button:hover svg path.bg
+                    path.bg {
+                        fill: $acent-color;
+                    }
+                }
+            }
+        }
+    }
+
+    // .header .nav-tel
+    .nav-tel {
+        width: vw(200px);
+        height: vw(50px);
+        border: vw(3px) dashed $acent-color;
+        font-size: vw(19px);
+        font-weight: 500;
+        border-radius: vw(3px);
+        transition: $transition;
+
+        @include flex(row, center, center);
+
+        @include hover {
+            background: $acent-color;
+            border: $borderSolid $text-color;
+            border-radius: $borderRadiusButton;
+            box-shadow: 0px 0px vw(20px) 0px $acent-color;
+        }
+
+        @include active;
+
+        @include devices(mobile) {
+            display: none;
+        }
+    }
+
+    // .header .nav-call
+    .nav-call {
+        @include hover {
+            box-shadow:
+                inset 0 0 0 $borderPx $text-color,
+                0px 0px vw(20px) 0px $acent-color;
+        }
+
+        @include devices(mobile) {
+            display: none;
+        }
+    }
+
+    // .header .burger
+    .burger {
+        position: relative;
+        cursor: pointer;
+        z-index: 5;
+        transition: 0.1s;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        display: none;
+        transition: $transition;
+
+        @include hover {
+            box-shadow:
+                inset 0 0 0 $borderPx $text-color,
+                0px 0px vw(20px) 0px $acent-color;
+        }
+
+        @include devices(tablet) {
+            width: auto;
+            aspect-ratio: 1;
+
+            @include flex(row, center, center);
+        }
+
+        @include devices(mobile) {
+            height: fit-content;
+            padding: 0;
+            background: transparent;
+            border: none;
+            margin-right: 0;
+            margin-left: vwm(10px);
+            box-shadow: none;
+
+            @include hover {
+                box-shadow: none;
+            }
+        }
+
+        // .header .burger__btn
+        &__btn {
+            position: relative;
+            display: block;
+            background: $text-color;
+            width: vw(20px);
+            height: vw(3px);
+            border-radius: $borderRadius;
+            transition:
+                transform 0.1s 0s linear,
+                top 0.2s 0.1s linear;
+
+            @include devices(mobile) {
+                width: vwm(20px);
+                height: vwm(3px);
+                background: $acent-color;
+            }
+
+            // .header .burger__btn::before
+            &::before {
+                position: absolute;
+                content: "";
+                top: vw(-6px);
+                left: 0;
+                background: $text-color;
+                width: vw(20px);
+                height: vw(3px);
+                border-radius: inherit;
+                transition:
+                    transform 0.1s 0s linear,
+                    top 0.2s 0.1s linear;
+
+                @include devices(mobile) {
+                    top: vwm(-6px);
+                    width: vwm(20px);
+                    height: vwm(3px);
+                    background: $acent-color;
+                }
+            }
+
+            // .header .burger__btn::after
+            &::after {
+                position: absolute;
+                content: "";
+                top: vw(6px);
+                left: 0;
+                background: $text-color;
+                width: vw(20px);
+                height: vw(3px);
+                border-radius: inherit;
+                transition: all 0.2s 0.1s linear;
+
+                @include devices(mobile) {
+                    top: vwm(6px);
+                    width: vwm(20px);
+                    height: vwm(3px);
+                    background: $acent-color;
+                }
+            }
+        }
+
+        // .header .burger.active .burger__btn
+        &.active .burger__btn {
+            transition:
+                top 0.2s 0s linear,
+                transform 0.1s 0.2s linear;
+            transform: rotate(45deg);
+
+            // .header .burger.active .burger__btn::before
+            &::before {
+                top: 0px;
+                transform: rotate(-90deg);
+                transition:
+                    top 0.2s 0s linear,
+                    transform 0.1s 0.2s linear;
+            }
+
+            // .header .burger.active .burger__btn::after
+            &::after {
+                top: 0px;
+                transition: all 0.2s 0s linear;
+            }
+        }
+    }
+}

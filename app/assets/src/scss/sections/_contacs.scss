@@ -1,0 +1,246 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.contacts {
+  position: relative;
+  padding-top: vw(110px);
+  padding-bottom: vw(135px);
+  background: $white-color;
+
+  @include flex(row, center, center);
+
+  @include devices(mobile) {
+    padding-top: vwm(111px);
+    padding-bottom: vwm(230px);
+  }
+
+  // .contacts__lines
+  &__lines {
+    position: absolute;
+    bottom: vw(135px);
+
+    @include flex(column, center, center, vw(32px));
+
+    @include devices(mobile) {
+      bottom: vwm(88px);
+      gap: vwm(19px);
+    }
+  }
+
+  // .contacts__line
+  &__line {
+    position: relative;
+    height: vw(75px);
+    white-space: nowrap;
+
+    @include devices(mobile) {
+      height: vwm(75px);
+    }
+
+    // .contacts__line--1
+    &--1 {
+      height: vw(55px);
+
+      @include devices(mobile) {
+        height: vwm(20px);
+      }
+
+      // .contacts__line--1 .contacts__line-text
+      .contacts__line-text {
+        animation: running-line 24s linear infinite;
+
+        @include devices(mobile) {
+          animation: running-line-mobile 24s linear infinite;
+        }
+      }
+
+      @for $i from 1 to 5 {
+        .contacts__line-text:nth-child(#{$i}) {
+          animation-delay: -#{$i * 6}s;
+        }
+      }
+
+      @include devices(mobile) {
+        @for $i from 1 to 4 {
+          .contacts__line-text:nth-child(#{$i}) {
+            animation-delay: -#{$i * 8}s;
+          }
+        }
+        @for $i from 4 to 5 {
+          .contacts__line-text:nth-child(#{$i}) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    // .contacts__line--2
+    &--2 {
+      height: vw(75px);
+
+      @include devices(mobile) {
+        height: vwm(32px);
+        margin-bottom: vwm(578px);
+      }
+
+      // .contacts__line--2 .contacts__line-text
+      .contacts__line-smile {
+        animation: running-line 30s linear infinite;
+      }
+
+      @for $i from 1 to 32 {
+        .contacts__line-smile:nth-child(#{$i}) {
+          animation-delay: -#{$i * 1}s;
+        }
+      }
+
+      @include devices(mobile) {
+        @for $i from 1 to 16 {
+          .contacts__line-smile:nth-child(#{$i}) {
+            animation-delay: -#{$i * 2}s;
+          }
+        }
+        @for $i from 16 to 32 {
+          .contacts__line-smile:nth-child(#{$i}) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    // .contacts__line--3
+    &--3 {
+      height: vw(55px);
+
+      @include devices(mobile) {
+        height: vwm(20px);
+      }
+
+      // .contacts__line--3 .contacts__line-text
+      .contacts__line-text {
+        animation: running-line 72s linear infinite reverse;
+
+        @include devices(mobile) {
+          animation: running-line-mobile 72s linear infinite reverse;
+        }
+      }
+
+      @for $i from 1 to 6 {
+        .contacts__line-text:nth-child(#{$i}) {
+          animation-delay: -#{$i * 18}s;
+        }
+      }
+
+      @include devices(mobile) {
+        @for $i from 1 to 4 {
+          .contacts__line-text:nth-child(#{$i}) {
+            animation-delay: -#{$i * 24}s;
+          }
+        }
+        @for $i from 4 to 5 {
+          .contacts__line-text:nth-child(#{$i}) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    // .contacts__line--4
+    &--4 {
+      height: vw(75px);
+
+      @include devices(mobile) {
+        height: vwm(32px);
+      }
+
+      // .contacts__line--4 .contacts__line-text
+      .contacts__line-smile {
+        animation: running-line 60s linear infinite reverse;
+      }
+
+      @for $i from 1 to 32 {
+        .contacts__line-smile:nth-child(#{$i}) {
+          animation-delay: -#{$i * 2}s;
+        }
+      }
+
+      @include devices(mobile) {
+        @for $i from 1 to 16 {
+          .contacts__line-smile:nth-child(#{$i}) {
+            animation-delay: -#{$i * 4}s;
+          }
+        }
+        @for $i from 16 to 32 {
+          .contacts__line-smile:nth-child(#{$i}) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    // .contacts__line--5
+    &--5 {
+      height: vw(55px);
+
+      @include devices(mobile) {
+        height: vwm(20px);
+      }
+
+      // .contacts__line--5 .contacts__line-text
+      .contacts__line-text {
+        animation: running-line 72s linear infinite;
+
+        @include devices(mobile) {
+          animation: running-line-mobile 72s linear infinite;
+        }
+      }
+
+      @for $i from 1 to 5 {
+        .contacts__line-text:nth-child(#{$i}) {
+          animation-delay: -#{$i * 18}s;
+        }
+      }
+
+      @include devices(mobile) {
+        @for $i from 1 to 4 {
+          .contacts__line-text:nth-child(#{$i}) {
+            animation-delay: -#{$i * 24}s;
+          }
+        }
+        @for $i from 4 to 5 {
+          .contacts__line-text:nth-child(#{$i}) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // .contacts__lines-text
+  &__line-text {
+    position: absolute;
+    display: inline-block;
+    color: $text-color;
+    font-size: vw(38px);
+    font-weight: 600;
+    pointer-events: none;
+
+    @include devices(mobile) {
+      font-size: vwm(17px);
+    }
+  }
+
+  // .contacts__line-smile
+  &__line-smile {
+    position: absolute;
+    width: vw(74.5px);
+    height: vw(74.5px);
+    pointer-events: none;
+
+    @include devices(mobile) {
+      width: vwm(32px);
+      height: vwm(32px);
+    }
+  }
+}

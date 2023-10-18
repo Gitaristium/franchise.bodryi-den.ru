@@ -1,0 +1,113 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.splide {
+    // .splide__arrows
+    &__arrows {
+        width: vw(60px);
+    }
+
+    // .splide__arrow
+    &__arrow {
+        background: none;
+        width: vw(75px);
+        height: vw(75px);
+        padding: vw(10px);
+        border-radius: 50%;
+        opacity: 1;
+        transform: none;
+        top: calc(50% - vw(37.5px));
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        transition: $transition;
+
+        @include hover {
+            background: $acent-color;
+            box-shadow:
+                0px 0px 0px vw(2px) $text-color,
+                0px 0px vw(20px) 0px $main-color;
+
+            @include devices(mobile) {
+                box-shadow:
+                    0px 0px 0px vwm(2px) $text-color,
+                    0px 0px vwm(20px) 0px $main-color;
+            }
+        }
+
+        @include active {
+        }
+
+        @include devices(mobile) {
+            background: noe;
+            width: vwm(75px);
+            height: vwm(75px);
+            padding: vwm(10px);
+            top: calc(50% - vwm(37.5px));
+        }
+
+        // .splide__arrow--prev
+        &--prev {
+            left: vw(-100px);
+
+            @include devices(mobile) {
+                left: vwm(-100px);
+            }
+        }
+
+        // .splide__arrow--next
+        &--next {
+            right: vw(-100px);
+
+            @include devices(mobile) {
+                right: vwm(-100px);
+            }
+        }
+    }
+
+    // .splide__pagination
+    &__pagination {
+        bottom: vw(-40px);
+
+        @include flex(row, center, center);
+
+        @include devices(mobile) {
+            bottom: vwm(-40px);
+        }
+    }
+
+    // .splide__pagination__page
+    &__pagination__page {
+        background: $main-color;
+        transition: $transition;
+        box-shadow: none;
+        width: vw(16px);
+        height: vw(16px);
+        margin: vw(3px);
+        opacity: 1;
+
+        @include hover {
+            box-shadow: 0px 0px vw(20px) 0px $main-color !important;
+            background-color: $acent-color;
+        }
+
+        @include devices(mobile) {
+            width: vwm(16px);
+            height: vwm(16px);
+            margin: vwm(3px);
+        }
+    }
+
+    // .splide__pagination__page.is-active
+    &__pagination__page.is-active {
+        background-color: $acent-color;
+        width: vw(32px);
+        border-radius: vw(8px);
+        transform: none;
+        // box-shadow: 0px 0px 0px 1px $text-color;
+
+        @include devices(mobile) {
+            width: vwm(32px);
+            border-radius: vwm(8px);
+        }
+    }
+}

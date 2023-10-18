@@ -1,0 +1,261 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.franchise-pack {
+    // .franchise-pack__title
+    &__title {
+        background: $white-color;
+
+        // .franchise-pack__title span
+        span {
+            animation: running-line 24s linear infinite reverse;
+        }
+
+        @for $i from 1 to 9 {
+            span:nth-child(#{$i}) {
+                animation-delay: -#{$i * 3}s;
+            }
+        }
+
+        @include devices(mobile) {
+            @for $i from 1 to 5 {
+                span:nth-child(#{$i}) {
+                    animation-delay: -#{$i * 30}s;
+                }
+            }
+            @for $i from 5 to 9 {
+                span:nth-child(#{$i}) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // .franchise-pack__content
+    &__content {
+        padding-top: vw(203px);
+        padding-bottom: vw(165px);
+        position: relative;
+
+        @include flex;
+
+        @include devices(mobile) {
+            padding-top: vwm(70px);
+            padding-bottom: vwm(28px);
+        }
+    }
+
+    // .finmodel__lightnings
+    // .finmodel__eyes
+    &__lightnings,
+    &__eyes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: fit-content;
+        margin: 0 auto;
+
+        @include flex(row, center, center, vw(60px));
+
+        @include devices(mobile) {
+            gap: vwm(37px);
+        }
+    }
+
+    // .finmodel__lightnings
+    &__lightnings {
+        top: vw(60px);
+        transform: translateX(-74%);
+
+        @include devices(mobile) {
+            top: vwm(946px);
+            transform: translateX(16%);
+        }
+
+        // .finmodel__eyes img
+        img {
+            width: vw(136px);
+            height: auto;
+
+            @include devices(mobile) {
+                width: vwm(60px);
+            }
+        }
+    }
+
+    // .finmodel__eyes
+    &__eyes {
+        top: vw(470px);
+        transform: translateX(74%);
+
+        @include devices(mobile) {
+            top: vwm(166px);
+            transform: translateX(19%);
+        }
+
+        // .finmodel__eyes img
+        img {
+            width: vw(192px);
+            height: auto;
+
+            @include devices(mobile) {
+                width: vwm(118px);
+            }
+        }
+    }
+
+    // .franchise-pack__smile
+    &__smile {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: vw(686px);
+        height: auto;
+        transform: translate(-95%, 12%);
+
+        @include devices(mobile) {
+            display: none;
+        }
+    }
+
+    // .franchise-pack__desc
+    &__desc {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: fit-content;
+        height: fit-content;
+        row-gap: vw(70px);
+        column-gap: vw(66px);
+        margin: auto vw(44px) auto auto;
+        z-index: 1;
+
+        @include devices(mobile) {
+            grid-template-columns: 1fr;
+            margin: auto auto auto vwm(63px);
+            row-gap: vwm(53px);
+        }
+    }
+
+    .pack-item {
+        width: 100%;
+        max-width: vw(415px);
+
+        &:nth-child(2n) {
+            animation-delay: 0.2s;
+        }
+
+        @include devices(mobile) {
+            max-width: 100%;
+
+            &:nth-child(1) {
+                order: 1;
+            }
+            &:nth-child(2) {
+                order: 3;
+            }
+            &:nth-child(3) {
+                order: 2;
+            }
+            &:nth-child(4) {
+                order: 4;
+                margin-top: vwm(3px);
+            }
+            &:nth-child(5) {
+                order: 7;
+            }
+            &:nth-child(6) {
+                order: 5;
+            }
+            &:nth-child(7) {
+                order: 6;
+                margin-top: vwm(2px);
+            }
+            &:nth-child(8) {
+                order: 8;
+                margin-top: vwm(3px);
+            }
+            &:nth-child(9) {
+                order: 9;
+            }
+            &:nth-child(10) {
+                order: 10;
+                margin-top: vwm(2px);
+            }
+            &:nth-child(2n) {
+                animation-delay: 0s;
+            }
+        }
+
+        // .franchise-pack .pack-item__title
+        &__title {
+            color: $text-color;
+            font-size: vw(30px);
+            font-weight: 500;
+            margin-bottom: vw(18px);
+
+            @include devices(mobile) {
+                font-size: vwm(24px);
+                margin-bottom: vwm(17px);
+            }
+        }
+
+        // .franchise-pack .pack-item__list
+        &__list {
+        }
+
+        // .franchise-pack .pack-item__list-item
+        &__list-item {
+            position: relative;
+            padding-left: vw(20px);
+            margin-bottom: vw(5px);
+            color: $text-color;
+            font-size: vw(18px);
+            font-weight: 300;
+            line-height: 150%; /* 27px */
+            opacity: 0;
+
+            @for $i from 1 to 5 {
+                &:nth-child(#{$i}) {
+                    transition: 0.5s #{$i * 0.1 + 0.4}s;
+                }
+            }
+
+            @include devices(mobile) {
+                font-size: vwm(14px);
+                padding-left: vwm(16px);
+                margin-bottom: vwm(5px);
+                line-height: 130%;
+                min-height: vwm(22px);
+            }
+
+            &::before {
+                position: absolute;
+                content: "";
+                width: vw(6px);
+                height: vw(6px);
+                background: $main-color;
+                border-radius: 50%;
+                top: vw(12px);
+                left: 0;
+
+                @include devices(mobile) {
+                    width: vwm(6px);
+                    height: vwm(6px);
+                    top: vwm(6px);
+                }
+            }
+        }
+
+        // .franchise-pack__smile.show--play
+        &.show--play {
+            .pack-item__list-item {
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,98 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.youtube {
+    padding-top: vw(211px);
+    padding-bottom: vw(131px);
+
+    @include devices(mobile) {
+        padding-top: vwm(60px);
+        padding-bottom: vwm(90px);
+    }
+
+    // .youtube__content
+    &__content {
+        @include flex(row, center, space-between);
+
+        @include devices(mobile) {
+            @include flex(column, flex-start, space-between, vwm(50px));
+        }
+    }
+
+    // .youtube__text
+    &__text {
+        width: -webkit-fill-available;
+        max-width: vw(250px);
+        color: $text-color;
+        font-size: vw(38px);
+        font-weight: 600;
+
+        @include devices(mobile) {
+            font-size: vwm(24px);
+            max-width: vwm(250px);
+        }
+    }
+
+    // .youtube__slider
+    &__slider {
+        margin: auto;
+        transform: translateX(7%);
+
+        @include devices(mobile) {
+            transform: translateX(0%);
+        }
+    }
+
+    // .youtube .splide
+    .splide {
+        // .youtube .splide__slide
+        &__slide {
+            width: vw(820px);
+            aspect-ratio: 1.78;
+
+            @include devices(mobile) {
+                width: vwm(290px);
+            }
+        }
+
+        // .youtube .splide__track
+        &__track {
+            border-radius: $borderRadius;
+            overflow: hidden;
+
+            @include devices(mobile) {
+                border-radius: $borderRadius-m;
+            }
+        }
+
+        // .youtube .splide__video__play
+        &__video__play {
+            background-color: $acent-color;
+            top: calc(50% - vw(20px));
+            left: calc(50% - vw(20px));
+            transform: none;
+            width: vw(40px);
+            height: vw(40px);
+            transition: $transition;
+
+            @include devices(mobile) {
+                top: calc(50% - vwm(20px));
+                left: calc(50% - vwm(20px));
+                width: vwm(40px);
+                height: vwm(40px);
+            }
+
+            // .youtube .splide__video__play::after
+            &::after {
+                border-width: vw(9px) 0 vw(9px) vw(17px);
+                margin-left: vw(4px);
+
+                @include devices(mobile) {
+                    border-width: vwm(9px) 0 vwm(9px) vwm(17px);
+                    margin-left: vwm(4px);
+                }
+            }
+        }
+    }
+}

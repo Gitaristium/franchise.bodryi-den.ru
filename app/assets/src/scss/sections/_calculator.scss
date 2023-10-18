@@ -1,0 +1,1044 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.calculator {
+    padding-top: vw(85px);
+    padding-bottom: vw(152px);
+
+    * {
+        color: #000 !important;
+    }
+
+    // .calculator__title
+    &__title {
+        margin-bottom: vw(25px);
+    }
+    .max-container-calculator {
+        // max-width: 1200px;
+        margin: auto;
+    }
+
+    .calculator-places {
+        white-space: normal;
+        margin-bottom: vw(15px);
+
+        @include flex(row, center, flex-start, vw(30px));
+    }
+
+    .calculator-places li:first-child {
+        // margin: 0;
+    }
+
+    .calculator-group {
+        font-size: vw(16px);
+    }
+
+    .calculator-group .group-label {
+        font-size: vw(16px);
+        font-weight: 500;
+    }
+
+    .calculator-group .text-places {
+        font-size: vw(14px);
+    }
+
+    .calculator-group-place {
+        margin-bottom: vw(38px);
+    }
+
+    .calculator-group-place .group-label {
+        margin-bottom: vw(10px);
+    }
+
+    .calculator-group-slider {
+        margin-bottom: vw(20px);
+    }
+
+    .calculator-group-slider .group-label {
+        margin-bottom: vw(48px);
+    }
+
+    .slider-group-label {
+        margin-top: vw(10px);
+    }
+
+    .slider-group-label .slider-label {
+        font-size: vw(14px);
+        opacity: 0.4;
+        color: $white-color;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: vw(60px);
+        border-collapse: collapse;
+    }
+
+    table thead td {
+        color: $white-color;
+        opacity: 1;
+        font-size: vw(14px);
+        padding: vw(15px) vw(15px) vw(15px) 0;
+        border-bottom: vw(1px) solid $acent-color;
+    }
+
+    table tbody td {
+        font-size: vw(14px);
+        // font-family: Stolzl-Medium;
+        color: $acent-color;
+        padding-top: vw(12px);
+    }
+
+    table tbody td:first-child {
+        color: $white-color;
+        opacity: 0.4;
+    }
+
+    table tbody td:nth-child(2) {
+        min-width: vw(66px);
+    }
+
+    .calculator-profit {
+        // transition: 0.1s;
+        box-shadow: #5a5a5a 0px 0px vw(10px);
+        box-shadow: $main-color 0px 0px vw(10px);
+        border-radius: 50%;
+        max-width: 100%;
+        width: vw(300px);
+        height: auto;
+        // border: 0.1px solid #5a5a5a;
+    }
+    .calculator-profit__circle {
+        stroke-width: 3;
+        stroke: #5a5a5a;
+        stroke: $main-color;
+        fill: rgba(0, 0, 0, 0);
+    }
+
+    .calculator-profit__glow {
+        stroke-width: 10;
+        stroke: $acent-color;
+        fill: rgba(0, 0, 0, 0);
+        stroke-dasharray: 829 829;
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+        transform-origin: center center;
+    }
+
+    .calculator-profit__number {
+        // fill: $white-color;
+        font-size: 32px;
+        text-anchor: middle;
+    }
+
+    .calculator-profit__label {
+        text-anchor: middle;
+        opacity: 0.56;
+        // fill: $white-color;
+        font-size: 12.5px;
+    }
+
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        width: 100%;
+        // padding-right: vw(15px);
+        // padding-left: vw(15px);
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: vw(-15px);
+        margin-left: vw(-15px);
+    }
+
+    .col-1,
+    .col-10,
+    .col-11,
+    .col-12,
+    .col,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-auto,
+    .col-lg,
+    .col-lg-1,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-lg-auto,
+    .col-md,
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-auto,
+    .col-sm,
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-sm-auto,
+    .col-xl,
+    .col-xl-1,
+    .col-xl-10,
+    .col-xl-11,
+    .col-xl-12,
+    .col-xl-2,
+    .col-xl-3,
+    .col-xl-4,
+    .col-xl-5,
+    .col-xl-6,
+    .col-xl-7,
+    .col-xl-8,
+    .col-xl-9,
+    .col-xl-auto {
+        position: relative;
+        width: 100%;
+        padding-right: vw(15px);
+        padding-left: vw(15px);
+    }
+    .col-12 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .col-lg-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    .col-xl-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+
+    // @media (min-width: 576px) {
+    //     .col-sm-12 {
+    //         -ms-flex: 0 0 100%;
+    //         flex: 0 0 100%;
+    //         max-width: 100%;
+    //     }
+    // }
+    // @media (min-width: 768px) {
+    //     .col-md-6 {
+    //         -ms-flex: 0 0 50%;
+    //         flex: 0 0 50%;
+    //         max-width: 50%;
+    //     }
+    //     .col-md-12 {
+    //         -ms-flex: 0 0 100%;
+    //         flex: 0 0 100%;
+    //         max-width: 100%;
+    //     }
+    // }
+    // @media (min-width: 992px) {
+    //     .col-lg-4 {
+    //         -ms-flex: 0 0 33.333333%;
+    //         flex: 0 0 33.333333%;
+    //         max-width: 33.333333%;
+    //     }
+    // }
+    // @media (min-width: 1200px) {
+    //     .col-xl-4 {
+    //         -ms-flex: 0 0 33.333333%;
+    //         flex: 0 0 33.333333%;
+    //         max-width: 33.333333%;
+    //     }
+    // }
+
+    .text-center {
+        text-align: center !important;
+    }
+    .justify-content-between {
+        -ms-flex-pack: justify !important;
+        justify-content: space-between !important;
+    }
+    .justify-content-center {
+        -ms-flex-pack: justify !important;
+        justify-content: center !important;
+    }
+    .d-flex {
+        display: -ms-flexbox !important;
+        display: flex !important;
+    }
+    .h-100 {
+        height: 100% !important;
+    }
+    .align-items-center {
+        -ms-flex-align: center !important;
+        align-items: center !important;
+    }
+    .flex-column {
+        -ms-flex-direction: column !important;
+        flex-direction: column !important;
+    }
+    .radio input {
+        display: none;
+    }
+    [type="checkbox"],
+    [type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+    input {
+        outline: none;
+    }
+    input,
+    textarea,
+    [contenteditable] {
+        caret-color: $white-color;
+        border-radius: vw(3px);
+        border: solid vw(1px) #dcdcdc;
+        outline: none;
+        padding: vw(10px) vw(16px);
+        font-size: vw(14px);
+        letter-spacing: vw(0.35px);
+        resize: none;
+        appearance: textfield;
+    }
+    button,
+    input {
+        // overflow: visible;
+    }
+    // button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        font-family: inherit;
+        // font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+    }
+    .radio input:checked ~ label {
+        color: $acent-color;
+    }
+    .radio label {
+        position: relative;
+        padding-left: vw(25px);
+        font-size: vw(13.33328px);
+        cursor: pointer;
+    }
+    .radio label:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: vw(14px);
+        height: vw(14px);
+        border: $borderSolid $text-color;
+        border-radius: 50%;
+    }
+    .radio input:checked ~ label:after {
+        display: block;
+    }
+    .radio label:after {
+        content: "";
+        width: vw(10px);
+        height: vw(10px);
+        position: absolute;
+        left: vw(3.5px);
+        top: vw(3.5px);
+        display: none;
+        background-color: $acent-color;
+        border-radius: 50%;
+    }
+    /*! nouislider - 14.1.1 - 12/15/2019 */
+    /* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+    .noUi-target,
+    .noUi-target * {
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-user-select: none;
+        -ms-touch-action: none;
+        touch-action: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .noUi-target {
+        position: relative;
+    }
+    .noUi-base,
+    .noUi-connects {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    .noUi-base {
+        transition: $transition;
+
+        @include hover {
+            box-shadow: 0px 0px vw(20px) 0px $main-color;
+        }
+    }
+    /* Wrapper for all connect elements.
+ */
+    .noUi-connects {
+        overflow: hidden;
+        z-index: 0;
+    }
+    .noUi-connect,
+    .noUi-origin {
+        will-change: transform;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        -ms-transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+        -webkit-transform-style: preserve-3d;
+        transform-origin: 0 0;
+        transform-style: flat;
+    }
+    .noUi-connect {
+        height: 100%;
+        width: 100%;
+    }
+    .noUi-origin {
+        // height: 10%;
+        // width: 10%;
+    }
+    /* Offset direction
+ */
+    .noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
+        left: 0;
+        right: auto;
+    }
+    /* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+    .noUi-vertical .noUi-origin {
+        width: 0;
+    }
+    .noUi-horizontal .noUi-origin {
+        height: 0;
+    }
+    .noUi-handle {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: absolute;
+    }
+    .noUi-touch-area {
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+    .noUi-state-tap .noUi-connect,
+    .noUi-state-tap .noUi-origin {
+        -webkit-transition: transform 0.3s;
+        transition: transform 0.3s;
+    }
+    .noUi-state-drag * {
+        cursor: inherit !important;
+    }
+    /* Slider size and handle placement;
+ */
+    .noUi-horizontal {
+        height: vw(18px);
+    }
+
+    /* Styling;
+ * Giving the connect element a border radius causes issues with using transform: scale
+ */
+    .noUi-target {
+        background: #fafafa;
+        border-radius: vw(4px);
+        border: vw(1px) solid #d3d3d3;
+        box-shadow:
+            inset 0 vw(1px) vw(1px) #f0f0f0,
+            0 vw(3px) vw(6px) vw(-5px) #bbb;
+    }
+    .noUi-connects {
+        border-radius: vw(3px);
+    }
+    .noUi-connect {
+        background: #3fb8af;
+    }
+    /* Handles and cursors;
+ */
+    .noUi-draggable {
+        cursor: ew-resize;
+    }
+    .noUi-vertical .noUi-draggable {
+        cursor: ns-resize;
+    }
+    .noUi-handle {
+        border: vw(1px) solid #d9d9d9;
+        border-radius: vw(3px);
+        background: $white-color;
+        cursor: default;
+        box-shadow:
+            inset 0 0 vw(1px) $white-color,
+            inset 0 vw(1px) vw(7px) #ebebeb,
+            0 vw(3px) vw(6px) vw(-3px) #bbb;
+    }
+    .noUi-active {
+        box-shadow:
+            inset 0 0 vw(1px) $white-color,
+            inset 0 vw(1px) vw(7px) #ddd,
+            0 vw(3px) vw(6px) vw(-3px) #bbb;
+    }
+    /* Handle stripes;
+ */
+    .noUi-handle:before,
+    .noUi-handle:after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: vw(14px);
+        width: vw(1px);
+        background: #e8e7e6;
+        top: vw(6px);
+        cursor: pointer;
+    }
+
+    .noUi-vertical .noUi-handle:before,
+    .noUi-vertical .noUi-handle:after {
+        width: vw(14px);
+        height: vw(1px);
+        left: vw(6px);
+        top: vw(14px);
+    }
+    .noUi-vertical .noUi-handle:after {
+        top: vw(17px);
+    }
+    /* Disabled state;
+ */
+    [disabled] .noUi-connect {
+        background: #b8b8b8;
+    }
+    [disabled].noUi-target,
+    [disabled].noUi-handle,
+    [disabled] .noUi-handle {
+        cursor: not-allowed;
+    }
+    /* Base;
+ *
+ */
+    .noUi-pips,
+    .noUi-pips * {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .noUi-pips {
+        position: absolute;
+        color: #999;
+    }
+    /* Values;
+ *
+ */
+    .noUi-value {
+        position: absolute;
+        white-space: nowrap;
+        text-align: center;
+    }
+    .noUi-value-sub {
+        color: #ccc;
+        font-size: vw(10px);
+    }
+    /* Markings;
+ *
+ */
+    .noUi-marker {
+        position: absolute;
+        background: #ccc;
+    }
+    .noUi-marker-sub {
+        background: #aaa;
+    }
+    .noUi-marker-large {
+        background: #aaa;
+    }
+    /* Horizontal layout;
+ *
+ */
+    .noUi-pips-horizontal {
+        padding: vw(10px) 0;
+        height: vw(80px);
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+    .noUi-value-horizontal {
+        -webkit-transform: translate(-50%, 50%);
+        transform: translate(-50%, 50%);
+    }
+    .noUi-rtl .noUi-value-horizontal {
+        -webkit-transform: translate(50%, 50%);
+        transform: translate(50%, 50%);
+    }
+    .noUi-marker-horizontal.noUi-marker {
+        margin-left: vw(-1px);
+        width: vw(2px);
+        height: vw(5px);
+    }
+    .noUi-marker-horizontal.noUi-marker-sub {
+        height: vw(10px);
+    }
+    .noUi-marker-horizontal.noUi-marker-large {
+        height: vw(15px);
+    }
+    /* Vertical layout;
+ *
+ */
+    .noUi-pips-vertical {
+        padding: 0 vw(10px);
+        height: 100%;
+        top: 0;
+        left: 100%;
+    }
+    .noUi-value-vertical {
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        padding-left: vw(25px);
+    }
+    .noUi-rtl .noUi-value-vertical {
+        -webkit-transform: translate(0, 50%);
+        transform: translate(0, 50%);
+    }
+    .noUi-marker-vertical.noUi-marker {
+        width: vw(5px);
+        height: vw(2px);
+        margin-top: vw(-1px);
+    }
+    .noUi-marker-vertical.noUi-marker-sub {
+        width: vw(10px);
+    }
+    .noUi-marker-vertical.noUi-marker-large {
+        width: vw(15px);
+    }
+    .noUi-tooltip {
+        display: block;
+        position: absolute;
+        border: vw(1px) solid #d9d9d9;
+        border-radius: vw(3px);
+        background: $white-color;
+        color: #000;
+        padding: vw(5px);
+        text-align: center;
+        white-space: nowrap;
+    }
+    .noUi-horizontal .noUi-tooltip {
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+        left: 50%;
+        bottom: 120%;
+    }
+    .noUi-vertical .noUi-tooltip {
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        top: 50%;
+        right: 120%;
+    }
+
+    .noUi-target {
+        border: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .noUi-connects {
+        background: $main-color;
+        border: $borderSolid $text-color;
+        // transition: $transition;
+
+        // @include hover {
+        //     box-shadow: 0px 0px vw(20px) 0px $main-color;
+        // }
+    }
+    .noUi-connect {
+        background: $acent-color;
+    }
+
+    .noUi-horizontal {
+        height: vw(8px);
+    }
+
+    .noUi-handle:after,
+    .noUi-handle:before {
+        content: none;
+    }
+
+    .noUi-handle:before {
+        content: "";
+        width: vw(20px);
+        height: vw(20px);
+        border-radius: 50%;
+        left: calc(50% - vw(10px));
+        top: calc(50% - vw(10px));
+        background: $acent-color;
+    }
+
+    .noUi-horizontal .noUi-handle {
+        width: vw(32px);
+        height: vw(32px);
+        border-radius: 100%;
+        top: vw(-12px);
+        background: $white-color;
+        border: $borderSolid $text-color;
+    }
+
+    .noUi-tooltip {
+        background: initial;
+        color: $acent-color;
+        border: none;
+        font-size: vw(16px);
+    }
+
+    .noUi-horizontal .noUi-tooltip {
+        bottom: 95%;
+    }
+
+    // .noUi-horizontal .noUi-handle {
+    //     left: auto;
+    // }
+
+    @include devices(mobile) {
+        padding-top: vwm(25px);
+        padding-bottom: vwm(70px);
+
+        // .calculator__title
+        &__title {
+            margin-bottom: vwm(25px);
+        }
+
+        .calculator-places {
+            margin-bottom: vwm(15px);
+
+            @include flex(column, flex-start, flex-start, vwm(15px));
+        }
+
+        .calculator-group {
+            font-size: vwm(16px);
+        }
+
+        .calculator-group .group-label {
+            font-size: vwm(16px);
+        }
+
+        .calculator-group .text-places {
+            font-size: vwm(14px);
+        }
+
+        .calculator-group-place {
+            margin-bottom: vwm(38px);
+        }
+
+        .calculator-group-place .group-label {
+            margin-bottom: vwm(10px);
+        }
+
+        .calculator-group-slider {
+            margin-bottom: vwm(20px);
+        }
+
+        .calculator-group-slider .group-label {
+            margin-bottom: vwm(48px);
+        }
+
+        .slider-group-label {
+            margin-top: vwm(10px);
+        }
+
+        .slider-group-label .slider-label {
+            font-size: vwm(14px);
+        }
+
+        table {
+            margin-bottom: vwm(60px);
+        }
+
+        table thead td {
+            font-size: vwm(14px);
+            padding: vwm(15px) vwm(15px) vwm(15px) 0;
+            border-bottom: vwm(1px) solid $acent-color;
+        }
+
+        table tbody td {
+            font-size: vwm(14px);
+            padding-top: vwm(12px);
+        }
+
+        table tbody td:nth-child(2) {
+            min-width: vwm(66px);
+        }
+
+        .calculator-profit {
+            box-shadow: #5a5a5a 0px 0px vwm(10px);
+            box-shadow: $main-color 0px 0px vwm(10px);
+            width: vwm(300px);
+        }
+
+        .row {
+            margin-right: vwm(-15px);
+            margin-left: vwm(-15px);
+        }
+
+        .col-1,
+        .col-10,
+        .col-11,
+        .col-12,
+        .col,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-auto,
+        .col-lg,
+        .col-lg-1,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-lg-auto,
+        .col-md,
+        .col-md-1,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-auto,
+        .col-sm,
+        .col-sm-1,
+        .col-sm-10,
+        .col-sm-11,
+        .col-sm-12,
+        .col-sm-2,
+        .col-sm-3,
+        .col-sm-4,
+        .col-sm-5,
+        .col-sm-6,
+        .col-sm-7,
+        .col-sm-8,
+        .col-sm-9,
+        .col-sm-auto,
+        .col-xl,
+        .col-xl-1,
+        .col-xl-10,
+        .col-xl-11,
+        .col-xl-12,
+        .col-xl-2,
+        .col-xl-3,
+        .col-xl-4,
+        .col-xl-5,
+        .col-xl-6,
+        .col-xl-7,
+        .col-xl-8,
+        .col-xl-9,
+        .col-xl-auto {
+            padding-right: vwm(15px);
+            padding-left: vwm(15px);
+            margin-bottom: vwm(30px);
+        }
+        .col-sm-12 {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        input,
+        textarea,
+        [contenteditable] {
+            border-radius: vwm(3px);
+            border: solid vwm(1px) #dcdcdc;
+            padding: vwm(10px) vwm(16px);
+            font-size: vwm(14px);
+            letter-spacing: vwm(0.35px);
+        }
+        .radio label {
+            padding-left: vwm(25px);
+            font-size: vwm(13.33328px);
+        }
+        .radio label:before {
+            width: vwm(14px);
+            height: vwm(14px);
+            border: $borderSolid-m $text-color;
+        }
+        .radio label:after {
+            width: vwm(10px);
+            height: vwm(10px);
+            left: vwm(3.5px);
+            top: vwm(3.5px);
+        }
+        .noUi-base {
+            @include hover {
+                box-shadow: 0px 0px vwm(20px) 0px $main-color;
+            }
+        }
+        .noUi-horizontal {
+            height: vwm(18px);
+        }
+
+        .noUi-target {
+            border-radius: vwm(4px);
+            border: vwm(1px) solid #d3d3d3;
+            box-shadow:
+                inset 0 vwm(1px) vwm(1px) #f0f0f0,
+                0 vwm(3px) vwm(6px) vwm(-5px) #bbb;
+        }
+        .noUi-connects {
+            border-radius: vwm(3px);
+        }
+        .noUi-handle {
+            border: vwm(1px) solid #d9d9d9;
+            border-radius: vwm(3px);
+            box-shadow:
+                inset 0 0 vwm(1px) $white-color,
+                inset 0 vwm(1px) vwm(7px) #ebebeb,
+                0 vwm(3px) vwm(6px) vwm(-3px) #bbb;
+        }
+        .noUi-active {
+            box-shadow:
+                inset 0 0 vwm(1px) $white-color,
+                inset 0 vwm(1px) vwm(7px) #ddd,
+                0 vwm(3px) vwm(6px) vwm(-3px) #bbb;
+        }
+        .noUi-handle:before,
+        .noUi-handle:after {
+            height: vwm(14px);
+            width: vwm(1px);
+            top: vwm(6px);
+        }
+
+        .noUi-vertical .noUi-handle:before,
+        .noUi-vertical .noUi-handle:after {
+            width: vwm(14px);
+            height: vwm(1px);
+            left: vwm(6px);
+            top: vvwmw(14px);
+        }
+        .noUi-vertical .noUi-handle:after {
+            top: vwm(17px);
+        }
+        .noUi-value-sub {
+            font-size: vwm(10px);
+        }
+        .noUi-pips-horizontal {
+            padding: vwm(10px) 0;
+            height: vwm(80px);
+        }
+        .noUi-marker-horizontal.noUi-marker {
+            margin-left: vwm(-1px);
+            width: vwm(2px);
+            height: vwm(5px);
+        }
+        .noUi-marker-horizontal.noUi-marker-sub {
+            height: vwm(10px);
+        }
+        .noUi-marker-horizontal.noUi-marker-large {
+            height: vwm(15px);
+        }
+        .noUi-pips-vertical {
+            padding: 0 vwm(10px);
+        }
+        .noUi-value-vertical {
+            padding-left: vwm(25px);
+        }
+        .noUi-marker-vertical.noUi-marker {
+            width: vwm(5px);
+            height: vwm(2px);
+            margin-top: vwm(-1px);
+        }
+        .noUi-marker-vertical.noUi-marker-sub {
+            width: vwm(10px);
+        }
+        .noUi-marker-vertical.noUi-marker-large {
+            width: vwm(15px);
+        }
+        .noUi-tooltip {
+            border-radius: vwm(3px);
+            padding: vwm(5px);
+        }
+        .noUi-connects {
+            border: $borderSolid-m $text-color;
+        }
+
+        .noUi-horizontal {
+            height: vwm(8px);
+        }
+
+        .noUi-handle:before {
+            width: vwm(20px);
+            height: vwm(20px);
+            left: calc(50% - vwm(10px));
+            top: calc(50% - vwm(10px));
+        }
+
+        .noUi-horizontal .noUi-handle {
+            width: vwm(32px);
+            height: vwm(32px);
+            top: vwm(-12px);
+            border: $borderSolid-m $text-color;
+        }
+
+        .noUi-tooltip {
+            font-size: vwm(16px);
+        }
+    }
+}

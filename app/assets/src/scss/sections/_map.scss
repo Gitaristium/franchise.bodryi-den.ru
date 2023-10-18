@@ -1,0 +1,204 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+//стили яндекс.карты
+#ya-map {
+    width: 100%;
+    max-height: 70vh;
+    aspect-ratio: 2;
+
+    @include devices(mobile) {
+        aspect-ratio: 0.5;
+    }
+
+    .ymaps3x0--controls {
+        padding: vw(12px);
+
+        @include devices(mobile) {
+            padding: vwm(12px);
+        }
+    }
+
+    .ymaps3x0--control {
+        border-radius: vw(8px);
+        box-shadow: 0 vw(2px) vw(6px) 0 #0003;
+
+        @include devices(mobile) {
+            border-radius: vwm(8px);
+            box-shadow: 0 vwm(2px) vwm(6px) 0 #0003;
+        }
+    }
+
+    .ymaps3x0--controls_vertical > .ymaps3x0--control {
+        margin-bottom: vw(8px);
+
+        @include devices(mobile) {
+            margin-bottom: vwm(8px);
+        }
+    }
+
+    .ymaps3x0--button {
+        width: auto;
+    }
+
+    .ymaps3x0--control-button {
+        border-radius: vw(8px);
+        padding: vw(8px);
+
+        @include devices(mobile) {
+            border-radius: vwm(8px);
+            padding: vwm(8px);
+        }
+    }
+
+    .ymaps3x0--zoom-control__in,
+    .ymaps3x0--zoom-control__out,
+    .ymaps3x0--geolocation-control {
+        background-color: transparent;
+        background-size: cover;
+        height: vw(24px);
+        width: vw(24px);
+
+        @include devices(mobile) {
+            height: vwm(24px);
+            width: vwm(24px);
+        }
+    }
+
+    // #ya-map
+    .ya-map {
+        // #ya-map .ya-map__marker
+        &__marker {
+            position: absolute;
+            left: vw(-25px);
+            top: vw(-57px);
+            width: vw(50px);
+            height: vw(57px);
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+
+            @include devices(mobile) {
+                left: vwm(-25px);
+                top: vwm(-57px);
+                width: vwm(50px);
+                height: vwm(57px);
+            }
+        }
+
+        // #ya-map .ya-map__popup
+        &__popup {
+            position: absolute;
+            pointer-events: none;
+            width: max-content;
+            height: auto;
+            border-radius: $borderRadius;
+            border: $borderSolid $text-color;
+            background: $white-color;
+            border: $borderSolid $text-color;
+            box-shadow: 0px vw(4px) vw(9px) 0px rgba($text-color, 0.25);
+            padding: vw(30px) vw(100px) vw(30px) vw(30px);
+            bottom: vw(100px);
+            transform: translateX(calc(-50% + vw(25px)));
+            opacity: 0;
+            transition: 0.5s;
+
+            &._active {
+                opacity: 1;
+                pointer-events: all;
+                // transition: 0.5s 1s;
+            }
+
+            @include devices(mobile) {
+                max-width: 95vw;
+                border-radius: $borderRadius-m;
+                border: $borderSolid-m $text-color;
+                box-shadow: 0px vwm(4px) vwm(9px) 0px rgba($text-color, 0.25);
+                padding: vwm(20px) vwm(70px) vwm(20px) vwm(20px);
+                bottom: vwm(70px);
+                transform: translateX(calc(-50% + vwm(25px)));
+            }
+        }
+
+        // #ya-map .ya-map__inner
+        &__popup-inner {
+            @include flex(column, flex-start, flex-start, vw(5px));
+
+            @include devices(mobile) {
+                gap: vwm(5px);
+            }
+        }
+
+        // #ya-map .ya-map__popup-title
+        &__popup-title {
+            font-size: vw(20px);
+
+            @include devices(mobile) {
+                font-size: vwm(20px);
+            }
+        }
+
+        // #ya-map .ya-map__popup-format
+        &__popup-format {
+            font-size: vw(16px);
+            opacity: 0.8;
+
+            @include devices(mobile) {
+                font-size: vwm(16px);
+            }
+        }
+
+        // #ya-map .ya-map__pin
+        &__pin {
+            position: relative;
+            width: vw(50px);
+            height: vw(57px);
+
+            @include devices(mobile) {
+                width: vwm(50px);
+                height: vwm(57px);
+            }
+        }
+
+        // #ya-map  .ya-map__popup-close
+        &__popup-close {
+            position: absolute;
+            aspect-ratio: 1;
+            width: fit-content;
+            padding: 0;
+            top: vw(10px);
+            right: vw(10px);
+
+            @include devices(mobile) {
+                top: vwm(5px);
+                right: vwm(5px);
+            }
+
+            &-inner {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: calc(50% - 25%);
+                width: 50%;
+                height: $borderPx;
+                background: $text-color;
+
+                @include devices(mobile) {
+                    height: $borderPx-m;
+                }
+
+                &:first-child {
+                    transform: rotate(45deg);
+                }
+                &:last-child {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}

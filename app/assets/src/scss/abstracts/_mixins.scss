@@ -1,0 +1,96 @@
+@mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin active {
+    &:active {
+        transform: $click;
+        @content;
+    }
+}
+
+@mixin media($px) {
+    @media only screen and (orientation: portrait), screen and (max-width: #{$px}px) {
+        @content;
+    }
+}
+
+@mixin devices($breakpoint) {
+    @if $breakpoint == desktop {
+        @media only screen and (max-width: 1600px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tablet {
+        @media only screen and (max-width: 1150px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == mobile {
+        // @media only screen and (orientation: portrait), screen and (max-width: 768px) {
+        @media only screen and (max-width: 768px) {
+            @content;
+        }
+    }
+}
+
+@mixin flex-variant($display, $direction: false, $align: false, $justify: false, $gap: false, $wrap: false) {
+    display: $display;
+
+    @if $direction {
+        flex-direction: $direction;
+    }
+
+    @if $align {
+        align-items: $align;
+    }
+
+    @if $justify {
+        justify-content: $justify;
+    }
+
+    @if $gap {
+        gap: $gap;
+    }
+
+    @if $wrap {
+        flex-wrap: $wrap;
+    }
+
+    // fix
+    & > * {
+        min-width: 0;
+    }
+}
+
+@mixin flex($direction: false, $align: false, $justify: false, $gap: false, $wrap: false) {
+    @include flex-variant(flex, $direction: $direction, $align: $align, $justify: $justify, $gap: $gap, $wrap: $wrap);
+}
+
+@mixin inline-flex($direction: false, $align: false, $justify: false, $gap: false, $wrap: false) {
+    @include flex-variant(
+        inline-flex,
+        $direction: $direction,
+        $align: $align,
+        $justify: $justify,
+        $gap: $gap,
+        $wrap: $wrap
+    );
+}
+
+$base-vw: 1600px;
+$mobile-vw: 320px;
+
+@function vw($px-vw) {
+    @return calc(($px-vw * 100vw) / $base-vw);
+}
+
+@function vwm($px-vw) {
+    @return calc(($px-vw * 100vw) / $mobile-vw);
+}

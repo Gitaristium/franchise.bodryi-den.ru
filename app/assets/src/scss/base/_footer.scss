@@ -1,0 +1,169 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.footer {
+    position: relative;
+    padding: vw(90px) 0;
+    overflow: hidden;
+
+    @include devices(mobile) {
+        padding: vwm(99px) 0 vwm(130px);
+    }
+
+    // .footer .container
+    .container {
+        @include flex(row, flex-start, space-between);
+
+        @include devices(mobile) {
+            @include flex(column, center, space-between, vwm(28px));
+        }
+    }
+
+    // .footer__text
+    &__text {
+        color: $white-color;
+        font-family: "Stolzl", sans-serif;
+        font-size: vw(154.552px);
+        font-weight: 400;
+        line-height: 100%; /* 154.552px */
+        width: vw(1100px);
+
+        @include devices(mobile) {
+            font-size: vwm(43px);
+            width: 100%;
+        }
+    }
+
+    // .footer__link
+    &__link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: fit-content;
+        padding: vw(35px);
+        border-radius: $borderRadiusButton $borderRadiusButton 0 0;
+        background: $white-color;
+        color: $text-color;
+        font-size: vw(18px);
+        font-weight: 300;
+        line-height: 140%; /* 25.2px */
+        transform: translateY(vw(15px));
+
+        @include flex(row, flex-end, center, vw(30px));
+
+        @include hover {
+            transform: translateY(vw(5px));
+        }
+
+        &:active {
+            transform: translateY(vw(30px));
+
+            @include devices(mobile) {
+                transform: translateY(vwm(30px));
+            }
+        }
+
+        @include devices(mobile) {
+            font-size: vwm(18px);
+            padding: vwm(35px);
+            transform: translateY(vwm(15px));
+            border-radius: $borderRadiusButton-m $borderRadiusButton-m 0 0;
+            gap: vwm(34px);
+        }
+
+        // .footer__link img
+        img {
+            width: vw(96px);
+            height: auto;
+
+            @include devices(mobile) {
+                width: vwm(95px);
+            }
+        }
+    }
+
+    // footer__social-buttons
+    &__social-buttons {
+        margin-top: vw(40px);
+
+        @include flex(row, flex-end, center, vw(15px));
+
+        @include devices(mobile) {
+            right: vwm(15px);
+            gap: vwm(10px);
+            right: 0;
+            left: 0;
+            bottom: vwm(123px);
+        }
+
+        // footer__social-buttons svg
+        // footer__social-buttons svg path
+        svg,
+        svg path {
+            transition: $transition;
+        }
+    }
+
+    // footer__social-button
+    &__social-button {
+        width: vw(87px);
+        height: vw(87px);
+
+        // footer__social-button svg
+        svg {
+            width: vw(87px);
+            height: vw(87px);
+        }
+
+        // footer__social-button:hover
+        @include hover {
+            // footer__social-button:hover svg
+            svg {
+                -webkit-filter: drop-shadow(0px 0px vw(20px) $acent-color);
+                filter: drop-shadow(0px 0px vw(20px) $acent-color);
+
+                @include devices(mobile) {
+                    -webkit-filter: drop-shadow(0px 0px vwm(20px) $acent-color);
+                    filter: drop-shadow(0px 0px vwm(20px) $acent-color);
+                }
+
+                // footer__social-button:hover svg path.bg
+                path.bg {
+                    fill: $acent-color;
+                }
+            }
+        }
+
+        @include devices(mobile) {
+            width: vwm(65px);
+            height: vwm(65px);
+
+            svg {
+                width: vwm(65px);
+                height: vwm(65px);
+            }
+        }
+    }
+
+    // footer__social-text
+    &__social-text {
+        color: $acent-color;
+        font-family: "Roboto", sans-serif;
+        font-size: vw(16px);
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1;
+        width: vw(20px);
+        white-space: nowrap;
+        transform-origin: center;
+        transform: rotate(-90deg);
+
+        @include devices(mobile) {
+            font-size: vwm(11.871px);
+            width: vwm(15px);
+        }
+    }
+}

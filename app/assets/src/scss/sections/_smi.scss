@@ -1,0 +1,84 @@
+@import "../abstracts/mixins";
+@import "../abstracts/colors";
+@import "../abstracts/vars";
+
+.smi {
+    padding: vw(90px) 0;
+
+    @include devices(mobile) {
+        padding: vwm(90px) 0 vwm(78px);
+    }
+
+    // .smi__content
+    &__content {
+        @include flex(row, center, space-between);
+
+        @include devices(mobile) {
+            @include flex(column, flex-start, space-between, vwm(50px));
+        }
+    }
+
+    // .smi__text
+    &__text {
+        width: -webkit-fill-available;
+        max-width: vw(200px);
+        color: $text-color;
+        font-size: vw(38px);
+        font-weight: 600;
+
+        @include devices(mobile) {
+            max-width: 100%;
+            font-size: vwm(24px);
+        }
+    }
+
+    // .smi__list
+    &__list {
+        @include flex(row, center, space-between, vw(20px));
+
+        @include devices(mobile) {
+            gap: vwm(6px);
+        }
+    }
+
+    // .smi__list-item
+    &__list-item {
+        @for $i from 1 to 4 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.1}s;
+            }
+        }
+    }
+
+    // .smi__link
+    &__link {
+        width: vw(300px);
+        height: vw(140px);
+        border-radius: $borderRadius;
+        overflow: hidden;
+        border: $borderSolid $text-color;
+        padding: vw(35px) vw(55px);
+
+        @include flex(row, center, center);
+
+        @include hover {
+            // border: $borderSolid $acent-color;
+            box-shadow: 0px 0px vw(20px) 0px $main-color;
+            background: $acent-color;
+        }
+
+        @include devices(mobile) {
+            width: vwm(93px);
+            height: vwm(43px);
+            border-radius: $borderRadius-m;
+            border: $borderSolid-m $text-color;
+            padding: vwm(10px) vwm(15px);
+        }
+    }
+
+    // .smi__link-img
+    &__link-img {
+        width: 100%;
+        height: auto;
+    }
+}

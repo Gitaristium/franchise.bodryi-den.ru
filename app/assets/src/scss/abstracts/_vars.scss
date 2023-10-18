@@ -1,0 +1,16 @@
+$headerPx: vw(110px);
+$borderPx: vw(2px);
+$borderSolid: $borderPx solid;
+$borderRadius: vw(10px);
+$borderRadiusButton: vw(30px);
+
+$headerPx-m: vwm(60px);
+$borderPx-m: vwm(2px);
+$borderSolid-m: $borderPx-m solid;
+$borderRadius-m: vwm(10px);
+$borderRadiusButton-m: vwm(30px);
+
+$transition:
+    all 0.2s ease-in-out,
+    transform 0.1s ease-in-out;
+$click: scale(0.9);
