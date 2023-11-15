@@ -1582,7 +1582,7 @@ section {
 @media (hover: hover) {
   .header .nav-tel:hover {
     background: #00ff0b;
-    border: 0.125vw solid #000000;
+    border: 0.1875vw solid #000000;
     border-radius: 1.875vw;
     box-shadow: 0px 0px 1.25vw 0px #00ff0b;
   }
