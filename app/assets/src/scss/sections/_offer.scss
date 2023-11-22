@@ -74,4 +74,49 @@
             margin-bottom: vwm(7px);
         }
     }
+
+    // .offer__round
+    &__round {
+        position: absolute;
+        top: vw(160px);
+        left: 55%;
+        width: vw(528px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: $acent-color;
+        border: $borderSolid $text-color;
+
+        @include devices(mobile) {
+            position: relative;
+            top: vwm(32px);
+            width: vwm(224px);
+            left: 15%;
+            margin-bottom: vwm(7px);
+            border: $borderSolid-m $text-color;
+        }
+    }
+
+    // .offer__round-inner
+    &__round-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    // .offer__alex
+    &__alex {
+        position: absolute;
+        bottom: vw(-2.4px);
+        left: vw(25.6px);
+        right: 0;
+        display: block;
+        margin: auto;
+        width: vw(464px);
+
+        @include devices(mobile) {
+            bottom: vwm(-1.28px);
+            left: vwm(8.96px);
+            width: vwm(185.6px);
+        }
+    }
 }
