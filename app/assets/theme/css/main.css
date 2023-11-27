@@ -1372,7 +1372,6 @@ section {
 .title {
   font-size: 2.375vw;
   font-weight: 600;
-  position: sticky;
   top: 0;
   z-index: 2;
 }
@@ -1429,7 +1428,6 @@ section {
 
 .header {
   border-bottom: 0.125vw solid #000000;
-  position: sticky;
   background: #0077ff;
   top: 0;
   z-index: 1;
