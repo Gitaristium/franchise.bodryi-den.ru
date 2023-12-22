@@ -25,8 +25,14 @@
 			<input type="checkbox" name="user__messenger" value="yes" class="input input__messenger" id="input__messenger--modal" aria-required="false" aria-invalid="false" autocomplete="off" />
 			<label for="input__messenger--modal" class="input__label-checkbox">напишите мне в мессенджер</label>
 		</div>
-		<input type="text" name="click__place" value="" hidden id="input__click__place" aria-required="false" aria-invalid="false" autocomplete="off" />
-		<input type="text" name="click__ya-target" value="" hidden id="input__click__ya-target" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="click__place" value="" hidden id="input__click__place--modal" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="click__ya-target" value="" hidden id="input__click__ya-target--modal" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_source" value="" hidden id="input__utm_source--modal" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_medium" value="" hidden id="input__utm_medium--modal" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_campaign" value="" hidden id="input__utm_campaign--modal" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_content" value="" hidden id="input__utm_content--modal" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_term" value="" hidden id="input__utm_term--modal" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="_ym_uid" value="" hidden id="input__ym_uid--modal" aria-required="false" aria-invalid="false" autocomplete="off" />
 		<button class="input__btn" id="btn-ajax__modal" type="button">
 			получить бизнес-план
 		</button>

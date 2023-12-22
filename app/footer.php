@@ -43,7 +43,7 @@ use Bitrix\Main\Web\Cookie;
 </footer>
 
 <? Asset::getInstance()->addJs(SITE_DIR . 'assets/vendor/js/vendor.js'); ?>
-<? Asset::getInstance()->addJs(SITE_DIR . 'assets/theme/js/main.js?ver=1.13'); ?>
+<? Asset::getInstance()->addJs(SITE_DIR . 'assets/theme/js/main.js?ver=1.15'); ?>
 </body>
 
 

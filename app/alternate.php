@@ -1,5 +1,13 @@
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php"); ?>
 
+<?
+
+use Bitrix\Main\Page\Asset;
+
+Asset::getInstance()->addCss(SITE_DIR . 'assets/theme/css/alternate.css');
+
+?>
+
 <div id="panel">
     <? $APPLICATION->ShowPanel(); ?>
 </div>
@@ -7,7 +15,7 @@
 <? require($_SERVER["DOCUMENT_ROOT"] . "/sections/header.php"); ?>
 
 <div class="wrapper">
-    <? require($_SERVER["DOCUMENT_ROOT"] . "/sections/offer-alex.php"); ?>
+    <? require($_SERVER["DOCUMENT_ROOT"] . "/sections/offer.php"); ?>
     <? require($_SERVER["DOCUMENT_ROOT"] . "/sections/finmodel.php"); ?>
     <? require($_SERVER["DOCUMENT_ROOT"] . "/sections/franchise-pack.php"); ?>
     <? require($_SERVER["DOCUMENT_ROOT"] . "/sections/formats.php"); ?>

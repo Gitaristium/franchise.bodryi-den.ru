@@ -11,7 +11,7 @@ $(document).ready(function () {
   /* Article FructCode.com */
   $("#btn-ajax__form").click(function (e) {
     event.preventDefault();
-
+    setUTM();
     $("#ajax__form input").removeClass("error error-mail");
     if (
       $('#ajax__form input[name="user__name"]').val().length > 0 &&
@@ -46,6 +46,7 @@ $(document).ready(function () {
 
   $("#btn-ajax__modal").click(function (e) {
     event.preventDefault();
+    setUTM();
     $("#ajax__modal input").removeClass("error error-mail");
     if (
       $('#ajax__modal input[name="user__name"]').val().length > 0 &&
@@ -145,6 +146,33 @@ $(document).ready(function () {
     });
   }
 
+  function setUTM() {
+    function getParameterByName(name) {
+      var name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+      var results = regex.exec(location.search);
+      return results === null
+        ? ""
+        : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    // Give the URL parameters variable names
+    var utm_source = getParameterByName("utm_source");
+    var utm_medium = getParameterByName("utm_medium");
+    var utm_campaign = getParameterByName("utm_campaign");
+    var utm_content = getParameterByName("utm_content");
+    var utm_term = getParameterByName("utm_term");
+
+    // Put the variable names into the hidden fields in the form.
+    $("#input__utm_source--modal, #input__utm_source").val(utm_source);
+    $("#input__utm_medium--modal, #input__utm_medium").val(utm_medium);
+    $("#input__utm_campaign--modal, #input__utm_campaign").val(utm_campaign);
+    $("#input__utm_content--modal, #input__utm_content").val(utm_content);
+    $("#input__utm_term--modal, #input__utm_term").val(utm_term);
+
+    ym(95060645, "getClientID", function (clientID) {
+      $("#input__ym_uid--modal, #input__ym_uid").val(clientID);
+    });
+  }
   // ввод только цифр в поле input tel
   var telInput = $('input[type="tel"]');
 

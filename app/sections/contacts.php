@@ -106,9 +106,14 @@
 			<input type="checkbox" name="user__messenger" value="yes" class="input input__messenger" id="input__messenger" aria-required="false" aria-invalid="false" autocomplete="off" />
 			<label for="input__messenger" class="input__label-checkbox">напишите мне в мессенджер</label>
 		</div>
-		<input type="text" name="click__place" value="Футер сайта" hidden aria-required="false" aria-invalid="false" autocomplete="off" />
-		<input type="text" name="click__ya-target" value="new-lead--footer" hidden aria-required="false" aria-invalid="false" autocomplete="off" />
-
+		<input type="text" name="click__place" value="Футер сайта" hidden id="input__click__place" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="click__ya-target" value="new-lead--footer" hidden id="input__click__ya-target" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_source" value="" hidden id="input__utm_source" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_medium" value="" hidden id="input__utm_medium" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_campaign" value="" hidden id="input__utm_campaign" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_content" value="" hidden id="input__utm_content" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="utm_term" value="" hidden id="input__utm_term" aria-required="false" aria-invalid="false" autocomplete="off" />
+		<input type="text" name="_ym_uid" value="" hidden id="input__ym_uid" aria-required="false" aria-invalid="false" autocomplete="off" />
 		<button class="input__btn" id="btn-ajax__form" type="button">
 			получить бизнес-план
 		</button>

@@ -351,7 +351,7 @@ $(document).ready(function () {
   /* Article FructCode.com */
   $("#btn-ajax__form").click(function (e) {
     event.preventDefault();
-
+    setUTM();
     $("#ajax__form input").removeClass("error error-mail");
     if (
       $('#ajax__form input[name="user__name"]').val().length > 0 &&
@@ -386,6 +386,7 @@ $(document).ready(function () {
 
   $("#btn-ajax__modal").click(function (e) {
     event.preventDefault();
+    setUTM();
     $("#ajax__modal input").removeClass("error error-mail");
     if (
       $('#ajax__modal input[name="user__name"]').val().length > 0 &&
@@ -485,6 +486,33 @@ $(document).ready(function () {
     });
   }
 
+  function setUTM() {
+    function getParameterByName(name) {
+      var name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+      var results = regex.exec(location.search);
+      return results === null
+        ? ""
+        : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    // Give the URL parameters variable names
+    var utm_source = getParameterByName("utm_source");
+    var utm_medium = getParameterByName("utm_medium");
+    var utm_campaign = getParameterByName("utm_campaign");
+    var utm_content = getParameterByName("utm_content");
+    var utm_term = getParameterByName("utm_term");
+
+    // Put the variable names into the hidden fields in the form.
+    $("#input__utm_source--modal, #input__utm_source").val(utm_source);
+    $("#input__utm_medium--modal, #input__utm_medium").val(utm_medium);
+    $("#input__utm_campaign--modal, #input__utm_campaign").val(utm_campaign);
+    $("#input__utm_content--modal, #input__utm_content").val(utm_content);
+    $("#input__utm_term--modal, #input__utm_term").val(utm_term);
+
+    ym(95060645, "getClientID", function (clientID) {
+      $("#input__ym_uid--modal, #input__ym_uid").val(clientID);
+    });
+  }
   // ввод только цифр в поле input tel
   var telInput = $('input[type="tel"]');
 
@@ -694,74 +722,74 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $(".get-plan").click(function (e) {
-        event.preventDefault();
-        $("#popup").addClass("active");
+  $(".get-plan").click(function (e) {
+    event.preventDefault();
+    $("#popup").addClass("active");
 
-        switch (true) {
-            case $(this).is("#btn-nav-call"):
-                $("#input__click__place").val("Шапка сайта");
-                $("#input__click__ya-target").val("new-lead--header");
-                break;
-            case $(this).is("#btn-nav-call-burger"):
-                $("#input__click__place").val("Бургер-меню (мобилка)");
-                $("#input__click__ya-target").val("new-lead--burger");
-                break;
-            case $(this).is("#btn-offer"):
-                $("#input__click__place").val("Оффер");
-                $("#input__click__ya-target").val("new-lead--offer");
-                break;
-            case $(this).is("#btn-formats-1"):
-                $("#input__click__place").val("Форматы: киоски и павильоны");
-                $("#input__click__ya-target").val("new-lead--formats-1");
-                break;
-            case $(this).is("#btn-formats-2"):
-                $("#input__click__place").val("Форматы: кофейня с кухней");
-                $("#input__click__ya-target").val("new-lead--formats-2");
-                break;
-            case $(this).is("#btn-formats-3"):
-                $("#input__click__place").val("Форматы: кофейня с посадкой");
-                $("#input__click__ya-target").val("new-lead--formats-3");
-                break;
-            case $(this).is("#btn-formats-4"):
-                $("#input__click__place").val("Форматы: островок с посадкой");
-                $("#input__click__ya-target").val("new-lead--formats-4");
-                break;
-            case $(this).is("#btn-formats-5"):
-                $("#input__click__place").val("Форматы: кофейный островок");
-                $("#input__click__ya-target").val("new-lead--formats-5");
-                break;
-            case $(this).is("#btn-formats-6"):
-                $("#input__click__place").val("Форматы: стрит");
-                $("#input__click__ya-target").val("new-lead--formats-6");
-                break;
-            case $(this).is("#btn-calculator"):
-                $("#input__click__place").val("Калькулятор");
-                $("#input__click__ya-target").val("new-lead--calculator");
-                break;
-            default:
-                break;
-        }
-    });
+    switch (true) {
+      case $(this).is("#btn-nav-call"):
+        $("#input__click__place--modal").val("Шапка сайта");
+        $("#input__click__ya-target--modal").val("new-lead--header");
+        break;
+      case $(this).is("#btn-nav-call-burger"):
+        $("#input__click__place--modal").val("Бургер-меню (мобилка)");
+        $("#input__click__ya-target--modal").val("new-lead--burger");
+        break;
+      case $(this).is("#btn-offer"):
+        $("#input__click__place--modal").val("Оффер");
+        $("#input__click__ya-target--modal").val("new-lead--offer");
+        break;
+      case $(this).is("#btn-formats-1"):
+        $("#input__click__place--modal").val("Форматы: киоски и павильоны");
+        $("#input__click__ya-target--modal").val("new-lead--formats-1");
+        break;
+      case $(this).is("#btn-formats-2"):
+        $("#input__click__place--modal").val("Форматы: кофейня с кухней");
+        $("#input__click__ya-target--modal").val("new-lead--formats-2");
+        break;
+      case $(this).is("#btn-formats-3"):
+        $("#input__click__place--modal").val("Форматы: кофейня с посадкой");
+        $("#input__click__ya-target--modal").val("new-lead--formats-3");
+        break;
+      case $(this).is("#btn-formats-4"):
+        $("#input__click__place--modal").val("Форматы: островок с посадкой");
+        $("#input__click__ya-target--modal").val("new-lead--formats-4");
+        break;
+      case $(this).is("#btn-formats-5"):
+        $("#input__click__place--modal").val("Форматы: кофейный островок");
+        $("#input__click__ya-target--modal").val("new-lead--formats-5");
+        break;
+      case $(this).is("#btn-formats-6"):
+        $("#input__click__place--modal").val("Форматы: стрит");
+        $("#input__click__ya-target--modal").val("new-lead--formats-6");
+        break;
+      case $(this).is("#btn-calculator"):
+        $("#input__click__place--modal").val("Калькулятор");
+        $("#input__click__ya-target--modal").val("new-lead--calculator");
+        break;
+      default:
+        break;
+    }
+  });
 
-    $("#popup .overlay, #popup .close").click(function (e) {
-        event.preventDefault();
-        $("#popup").addClass("inactive");
+  $("#popup .overlay, #popup .close").click(function (e) {
+    event.preventDefault();
+    $("#popup").addClass("inactive");
 
-        setTimeout(() => {
-            $("#popup").removeClass("active inactive");
-            $("#input__click__place").val("");
-        }, 500);
-    });
+    setTimeout(() => {
+      $("#popup").removeClass("active inactive");
+      $("#input__click__place--modal").val("");
+    }, 500);
+  });
 
-    $("#sended .overlay, #sended .close").click(function (e) {
-        event.preventDefault();
-        $("#sended").addClass("inactive");
+  $("#sended .overlay, #sended .close").click(function (e) {
+    event.preventDefault();
+    $("#sended").addClass("inactive");
 
-        setTimeout(() => {
-            $("#sended").removeClass("active inactive");
-        }, 500);
-    });
+    setTimeout(() => {
+      $("#sended").removeClass("active inactive");
+    }, 500);
+  });
 });
 
 $(document).ready(function () {
